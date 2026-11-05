@@ -3,27 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logan Woodruff-Hubler | Professional Persona</title>
+    <title>Logan Woodruff-Hubler | Executive Portfolio & Persona Analysis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #1F2A5C;
+            --navy-light: #2A3A7C;
             --gold: #C98A3B;
-            --bg-light: #F8F9FA;
-            --text-dark: #2B2D42;
-            --white: #FFFFFF;
+            --gold-hover: #b0762e;
+            --bg-body: #F4F6F9;
+            --card-bg: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-muted: #64748B;
+            --border-color: #E2E8F0;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            font-family: 'Inter', sans-serif;
             color: var(--text-dark);
-            background-color: var(--bg-light);
+            background-color: var(--bg-body);
             line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
         /* Navigation */
@@ -32,23 +38,23 @@
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
         }
 
         nav {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 2rem;
+            padding: 1.1rem 2rem;
         }
 
         .logo {
-            color: var(--white);
-            font-size: 1.3rem;
-            font-weight: bold;
-            letter-spacing: 0.5px;
+            color: #FFF;
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -58,124 +64,337 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 1.5rem;
+            gap: 1.75rem;
         }
 
         .nav-links a {
-            color: var(--white);
+            color: #CBD5E1;
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
         }
 
         .nav-links a:hover {
             color: var(--gold);
         }
 
-        /* Layout Sections */
-        section {
-            padding: 4rem 2rem;
-            max-width: 1100px;
-            margin: 0 auto;
-            background: var(--white);
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        /* Hero / Header Section */
+        .hero {
+            background: linear-gradient(135deg, var(--navy) 0%, #111827 100%);
+            color: white;
+            padding: 5rem 2rem 4rem;
+            border-bottom: 4px solid var(--gold);
         }
 
-        h1, h2, h3 {
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-family: 'Merriweather', serif;
+            font-size: 2.5rem;
+            line-height: 1.25;
+            margin-bottom: 1rem;
+            color: #FFF;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #94A3B8;
+            margin-bottom: 1.8rem;
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .badge {
+            background: rgba(201, 138, 59, 0.15);
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            padding: 0.35rem 0.85rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .profile-img-box {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            border: 3px solid var(--gold);
+            background: #334155;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #94A3B8;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        .profile-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Key Metrics Banner */
+        .metrics-banner {
+            max-width: 1200px;
+            margin: -2rem auto 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            padding: 0 2rem;
+        }
+
+        .metric-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+            text-align: center;
+        }
+
+        .metric-card .number {
+            font-size: 2rem;
+            font-weight: 700;
             color: var(--navy);
+        }
+
+        .metric-card .label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-top: 0.25rem;
+        }
+
+        /* Container & Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem 4rem;
+        }
+
+        section {
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        h2.section-title {
+            font-family: 'Merriweather', serif;
+            font-size: 1.75rem;
+            color: var(--navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-subtitle {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        /* CER Cards */
+        .cer-card {
+            border: 1px solid var(--border-color);
+            border-left: 5px solid var(--gold);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            background: #FAFAFC;
+        }
+
+        .cer-card h3 {
+            color: var(--navy);
+            font-size: 1.3rem;
             margin-bottom: 1rem;
         }
 
-        h2 {
-            border-bottom: 2px solid var(--gold);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
+        .cer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
         }
 
+        .cer-block {
+            background: #FFF;
+            padding: 1.25rem;
+            border-radius: 6px;
+            border: 1px solid #E2E8F0;
+        }
+
+        .cer-block h4 {
+            color: var(--gold-hover);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Media / Visual Containers */
+        .visual-container {
+            width: 100%;
+            background: #F1F5F9;
+            border: 2px dashed #CBD5E1;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            color: #64748B;
+            margin: 1.25rem 0;
+        }
+
+        .visual-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+        }
+
+        /* Interactive Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .work-card {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.75rem;
+            background: #FFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .work-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.06);
+        }
+
+        .work-card h3 {
+            color: var(--navy);
+            margin-bottom: 0.75rem;
+        }
+
+        .work-tag {
+            align-self: flex-start;
+            background: #EFF6FF;
+            color: #1D4ED8;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons & Resume styling */
         .btn {
             display: inline-block;
             background-color: var(--navy);
-            color: var(--white);
+            color: #FFF;
             padding: 0.75rem 1.5rem;
-            text-decoration: none;
-            border-radius: 4px;
+            border-radius: 6px;
             font-weight: 600;
-            margin-right: 0.5rem;
-            margin-top: 1rem;
-            transition: background 0.3s;
+            text-decoration: none;
+            transition: background 0.2s;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
-            background-color: var(--gold);
+            background-color: var(--navy-light);
         }
 
         .btn-gold {
             background-color: var(--gold);
+            color: #FFF;
         }
 
         .btn-gold:hover {
-            background-color: var(--navy);
+            background-color: var(--gold-hover);
         }
 
-        /* Cards & Frameworks */
-        .card {
-            border: 1px solid #E0E0E0;
-            border-left: 4px solid var(--navy);
-            padding: 1.5rem;
+        .resume-section {
             margin-bottom: 1.5rem;
-            border-radius: 4px;
-            background: #FAFAFA;
         }
 
-        .cer-box {
-            border-left-color: var(--gold);
+        .resume-section h3 {
+            color: var(--navy);
+            font-size: 1.1rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
         }
 
-        .placeholder-img {
-            width: 100%;
-            height: 250px;
-            background-color: #E9ECEF;
-            border: 2px dashed #CED4DA;
+        .resume-item {
+            margin-bottom: 1.25rem;
+        }
+
+        .resume-item header {
+            background: none;
+            box-shadow: none;
+            position: static;
+            padding: 0;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #6C757D;
-            margin: 1rem 0;
-            font-style: italic;
-            border-radius: 4px;
+            justify-content: space-between;
+            font-weight: 600;
+            color: var(--text-dark);
         }
 
-        .video-container {
+        .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
             height: 0;
+            border-radius: 8px;
             overflow: hidden;
-            max-width: 100%;
-            margin-top: 1rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .video-container iframe {
+        .video-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             border: 0;
         }
 
         footer {
+            background: var(--navy);
+            color: #94A3B8;
             text-align: center;
-            padding: 2rem;
-            background-color: var(--navy);
-            color: var(--white);
-            margin-top: 3rem;
+            padding: 2.5rem 2rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-container, .cer-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header Navigation -->
     <header>
         <nav>
             <div class="logo">Logan <span>Woodruff-Hubler</span></div>
@@ -183,164 +402,271 @@
                 <li><a href="#story">Story</a></li>
                 <li><a href="#resume">Résumé</a></li>
                 <li><a href="#video">Video</a></li>
-                <li><a href="#growth">Growth</a></li>
-                <li><a href="#work">Work</a></li>
+                <li><a href="#growth">Growth Analysis</a></li>
+                <li><a href="#work">Portfolio</a></li>
                 <li><a href="#connect">Connect</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- PAGE 1: STORY -->
-    <section id="story">
-        <h1>Precise with the Numbers. Warm with the Team.</h1>
-        <div style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
-            <div style="flex: 1; min-width: 280px;">
-                <p>Hi, I'm Logan Woodruff-Hubler, an Eller sophomore and Honors College student on the path to a CPA license and a public accounting career in the Southwest.</p>
-                <br>
-                <p>I have interned at CliftonLarsonAllen and taken part in the Eide Bailly Accounting Leadership Program. In my fraternity, I have served as Vice President of Finance and Vice President of Risk Management since November 2025. There I built a billing system that made dues transparent and brought collections close to perfect.</p>
-                <br>
-                <p>This semester I measured how I come across to others. Teammates rate my quality, effort, and team spirit well above average. They also told me to give more direct feedback. I am working on that, and this site shows the data and my plan.</p>
+    <!-- Hero Section -->
+    <div class="hero" id="story">
+        <div class="hero-container">
+            <div class="hero-text">
+                <div class="hero-badges">
+                    <span class="badge">Eller College of Management</span>
+                    <span class="badge">3.89 GPA</span>
+                    <span class="badge">Franke Honors College</span>
+                    <span class="badge">CPA Track</span>
+                </div>
+                <h1>Precise with the Numbers.<br>Warm with the Team.</h1>
+                <p>Sophomore Foundational Business Management student at the University of Arizona specializing in technical financial analysis, audit readiness, and collaborative leadership. Experienced across CliftonLarsonAllen and Eide Bailly accounting programs.</p>
                 <div>
-                    <a href="#video" class="btn">Watch My Video</a>
-                    <a href="#resume" class="btn btn-gold">See My Résumé</a>
-                    <a href="mailto:Hubler.logan@gmail.com" class="btn">Email Me</a>
+                    <a href="#video" class="btn btn-gold">Watch Persona Video</a>
+                    <a href="#growth" class="btn">View Growth Analysis</a>
                 </div>
             </div>
-            <div style="flex: 1; min-width: 250px;">
-                <div class="placeholder-img">[ Headshot Placeholder: Logan Woodruff-Hubler ]</div>
+            <div class="profile-img-box">
+                <!-- Replace headshot.jpg with your uploaded file -->
+                <img src="headshot.jpg" alt="Logan Woodruff-Hubler Headshot" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>[ Upload headshot.jpg ]</p>'">
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- PAGE 2: RÉSUMÉ -->
-    <section id="resume">
-        <h2>Logan Woodruff-Hubler</h2>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/logan-woodruff-hubler-73b9312a3/" target="_blank">linkedin.com/in/logan-woodruff-hubler-73b9312a3/</a> | <strong>Email:</strong> Hubler.logan@gmail.com</p>
-        <hr style="margin: 1rem 0;">
-
-        <h3>Education</h3>
-        <p><strong>University of Arizona, Eller College of Management</strong> — Tucson, Arizona</p>
-        <p><em>Expected Graduation: May 2028</em></p>
-        <p>• Major: Foundational Business Management | GPA: 3.89</p>
-        <p>• Honors: W.A. Franke Honors College student, Dean's List with Distinction, Wildcat Excellence Scholarship Recipient</p>
-        <br>
-
-        <h3>Professional & Leadership Experience</h3>
-        <p><strong>Beta Theta Pi</strong> — Vice President of Finance & Vice President of Risk Management (Nov 2025 – Present)</p>
-        <p>• Helped start a new chapter. Built a billing system that made dues transparent, with near-perfect collection.</p>
-        <p>• Designed balanced budgets and pricing plans that fund activities while building long-term savings.</p>
-        <br>
-        <p><strong>Black Rock Coffee Shop</strong> — Barista, Chandler, AZ (Apr 2024 – Present)</p>
-        <p>• Deliver exceptional customer service and a positive guest experience in a fast-paced environment.</p>
-        <p>• Handle cash, credit, and mobile payments with accuracy; balance registers and manage high-volume orders.</p>
-        <br>
-        <p><strong>Eller Business Careers Institute Program</strong> — Participant, Chandler, AZ (Jun 2025 – Jul 2025)</p>
-        <p>• Learned from industry leaders about finance trends, wealth management, and accounting methods.</p>
-        <br>
-        <p><strong>Eide Bailly Accounting Leadership Program</strong> — Participant, Chandler, AZ (May 2025)</p>
-        <p>• Hands-on exposure to accounting practices through collaborative team projects.</p>
-        <p>• Offered a paid Summer 2027 accounting internship upon program completion.</p>
-        <br>
-        <p><strong>CliftonLarsonAllen</strong> — Accounting Intern, Phoenix, AZ (May 2024 – Jul 2024)</p>
-        <p>• Selected as 1 of 6 interns from 200+ applicants; completed internal projects involving tax, compliance, and Excel analytics.</p>
-        <br>
-
-        <h3>Skills, Certifications & Interests</h3>
-        <p><strong>Skills:</strong> Microsoft Excel, Microsoft Office Suite, Google Suite, Team Collaboration, Adobe Premiere Pro, Adobe Photoshop, Customer Service</p>
-        <p><strong>Certifications:</strong> Franke Honors Civic Leadership Certificate (in progress), NRF Customer Service Certification, Food Handlers Permit</p>
-        <p><strong>Activities & Interests:</strong> Beta Theta Pi, STUMO, Intramural Sports, Church Community Service, Guitar, Chess, Leadership Studies, International Travel</p>
-    </section>
-
-    <!-- PAGE 3: VIDEO -->
-    <section id="video">
-        <h2>Stepping Out of the Cell</h2>
-        <p><em>My story in video: technical precision, with people at the center.</em></p>
-        <div class="video-container">
-            <iframe src="https://www.youtube.com/embed/9QgogRoYe-4" title="Professional Persona Video" allowfullscreen></iframe>
+    <!-- Key Metrics Banner -->
+    <div class="metrics-banner">
+        <div class="metric-card">
+            <div class="number">99.6%</div>
+            <div class="label">Round 2 Team Effort Score (+14.4% vs Team Avg)</div>
         </div>
-    </section>
-
-    <!-- PAGE 4: GROWTH -->
-    <section id="growth">
-        <h2>How I Measured My Growth (Professional Evolution Analysis)</h2>
-        <p>Public accounting firms need people who are accurate, dependable, easy to work with, and who speak up when something is off. I tested myself on all of that this semester using my Self-Perception Inventory (SPI), two rounds of 360 teammate feedback, peer review surveys (PRS), and the Charisma Diagnostic.</p>
-        <br>
-
-        <div class="card cer-box">
-            <h3>Domain 1: Core Values — Structure and Standards Drive My Work</h3>
-            <div class="placeholder-img">[ Insert Chart: Structure & Achievement Motivators ]</div>
-            <p><strong>Claim:</strong> My core professional identity is grounded in structural accuracy and high standards of achievement.</p>
-            <p><strong>Evidence:</strong> Stability is my top motivator on the SPI (80/100), followed by achievement (60) and tradition (55). Peers independently verified this identity: all 7 words I selected for myself were also chosen by peers (e.g., <em>Driven</em> picked by 3/4, <em>Rule-Follower</em> and <em>Good with Numbers</em> by 2/4). In Round 2 360 evaluations, teammates rated my quality of work 95.8 vs. the team average of 86.83.</p>
-            <p><strong>Reasoning:</strong> Public accounting relies on compliance, accuracy, and standardized frameworks. My identity and reputation align strongly here, providing a trusted foundation for audit and financial analysis.</p>
+        <div class="metric-card">
+            <div class="number">95.8%</div>
+            <div class="label">Round 2 Work Quality Score (+10.3% vs Team Avg)</div>
         </div>
-
-        <div class="card cer-box">
-            <h3>Domain 2: Communication Style — A Driver by Nature, Seen as Analytical</h3>
-            <div class="placeholder-img">[ Insert Chart: Proactivity & Communication Gaps ]</div>
-            <p><strong>Claim:</strong> While my internal orientation is proactive and direct, my initial interpersonal presentation is perceived as reserved and analytical.</p>
-            <p><strong>Evidence:</strong> My self-assessment identifies as a Driver style (proactivity 1.0, reactivity -4.0), whereas 3 of 4 peers rated my outward behavior as Analytical (average proactivity -4.0). Qualitative feedback noted I can be "shy at first, then fully attentive once engaged."</p>
-            <p><strong>Reasoning & Brand Strategy (Intention vs. Impact):</strong> My intention to keep team dynamics positive led me to withhold critical feedback. The impact was that teammates missed out on constructive insights. To reconcile this, my <strong>"Warm & Specific" Strategy</strong> focuses on three tactical habits:</p>
-            <ul>
-                <li>1. Bring one specific actionable suggestion to every team meeting.</li>
-                <li>2. Name execution gaps early (specifying what, why, and deadline).</li>
-                <li>3. Follow up individually to ensure feedback is supportive and clear.</li>
-            </ul>
+        <div class="metric-card">
+            <div class="number">100%</div>
+            <div class="label">Teammate Contribution Consensus (5/5 Peers)</div>
         </div>
-
-        <div class="card cer-box">
-            <h3>Domain 3: Course Insight — Warmth & Competence Matrix</h3>
-            <div class="placeholder-img">[ Insert Chart: Charisma Profile & Accountability Trend ]</div>
-            <p><strong>Claim:</strong> I consistently project high warmth and technical competence, with direct accountability serving as my primary growth boundary.</p>
-            <p><strong>Evidence:</strong> My Charisma Profile places me in the Charismatic Zone (Warmth ~5.0, Confidence ~1.8). 360 scores show team environment and effort ratings rising to 99.4 and 99.6 in Round 2, with 5 of 5 teammates noting I contributed more than others. However, holding others accountable dropped from 3.8 to 3.2 between rounds.</p>
-            <p><strong>Reasoning:</strong> During Presentation 3, when out-of-town constraints threatened coordination, I maintained high warmth and effort via virtual calls. However, developing true leadership competence in public accounting requires pairing that warmth with clear accountability standards.</p>
+        <div class="metric-card">
+            <div class="number">60.0%</div>
+            <div class="label">Predictive Model Accuracy (UFC Tracker)</div>
         </div>
-    </section>
+    </div>
 
-    <!-- PAGE 5: WORK -->
-    <section id="work">
-        <h2>Work Samples (Portfolio)</h2>
+    <div class="container">
 
-        <div class="card">
-            <h3>1. UFC Pick Tracker & Analytics Engine (Individual Work)</h3>
-            <p><strong>Context:</strong> Created a custom automated model in Excel to track and analyze over 35 UFC events.</p>
-            <p><strong>Action:</strong> Developed VBA macros for automated data retrieval, event-level analytics, and weight-class win rate calculations.</p>
-            <p><strong>Result:</strong> Achieved an overall 60% prediction accuracy across 30+ events (64% accuracy in men's weight divisions).</p>
-            <p><strong>Claims & Reasoning:</strong> Demonstrates advanced Excel modeling, VBA automation, and structural data analysis applied to personal interest areas.</p>
-        </div>
+        <!-- RÉSUMÉ SECTION -->
+        <section id="resume">
+            <h2 class="section-title">Professional Résumé</h2>
+            <p class="section-subtitle">Tucson, AZ | Hubler.logan@gmail.com | <a href="https://www.linkedin.com/in/logan-woodruff-hubler-73b9312a3/" target="_blank">LinkedIn Profile</a></p>
 
-        <div class="card">
-            <h3>2. U.S. University Graduation Rate Analysis (Tableau Dashboard)</h3>
-            <p><strong>Context:</strong> Collaborative team project analyzing 6-year bachelor's degree graduation rates across ~1,500 U.S. institutions.</p>
-            <p><strong>Action:</strong> Designed Tableau calculated fields, visual hierarchy, and dashboard filter actions.</p>
-            <p><strong>Result:</strong> Revealed key trends, such as private non-profit universities outperforming public school graduation rates by 13-14 percentage points.</p>
-            <p><strong>Claims & Reasoning:</strong> Validates visual analytics proficiency, Tableau skills, and data presentation clarity.</p>
-            <a href="https://public.tableau.com/views/USDEGraduaitonRateAnalysis/HomePage" target="_blank" class="btn">View Live Tableau Dashboard</a>
-        </div>
+            <div class="resume-section">
+                <h3>Education</h3>
+                <div class="resume-item">
+                    <header>
+                        <span>University of Arizona, Eller College of Management</span>
+                        <span>Expected May 2028</span>
+                    </header>
+                    <p><em>Bachelor of Science in Business Administration — Foundational Business Management</em> | GPA: 3.89</p>
+                    <p>Honors: W.A. Franke Honors College, Dean's List with Distinction, Wildcat Excellence Scholarship Recipient</p>
+                </div>
+            </div>
 
-        <div class="card">
-            <h3>3. Fraternity Billing & Budgeting System</h3>
-            <p><strong>Context:</strong> Managed financial operations as VP of Finance for Beta Theta Pi.</p>
-            <p><strong>Action:</strong> Built a transparent member billing structure and balanced operating budgets.</p>
-            <p><strong>Result:</strong> Achieved near-perfect dues collection rates while funding chapter operations and growing reserves.</p>
-            <p><strong>Claims & Reasoning:</strong> Proves practical financial management, stewardship, and operational leadership.</p>
-        </div>
-    </section>
+            <div class="resume-section">
+                <h3>Professional & Leadership Experience</h3>
+                
+                <div class="resume-item">
+                    <header>
+                        <span>Beta Theta Pi — Vice President of Finance & VP of Risk Management</span>
+                        <span>Nov 2025 – Present</span>
+                    </header>
+                    <p>• Engineered a transparent fraternity billing platform that raised member dues collection rates near 100%.</p>
+                    <p>• Formulated balanced chapter operating budgets and capital allocation plans to fund operations while building reserves.</p>
+                </div>
 
-    <!-- PAGE 6: CONNECT -->
-    <section id="connect">
-        <h2>Let's Connect</h2>
-        <p>I am actively seeking public accounting internship and full-time opportunities in the Southwest.</p>
-        <br>
-        <p><strong>Email:</strong> <a href="mailto:Hubler.logan@gmail.com">Hubler.logan@gmail.com</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/logan-woodruff-hubler-73b9312a3/" target="_blank">linkedin.com/in/logan-woodruff-hubler-73b9312a3/</a></p>
-        <div>
-            <a href="mailto:Hubler.logan@gmail.com" class="btn btn-gold">Send Email</a>
-            <a href="https://www.linkedin.com/in/logan-woodruff-hubler-73b9312a3/" target="_blank" class="btn">View LinkedIn Profile</a>
-        </div>
-    </section>
+                <div class="resume-item">
+                    <header>
+                        <span>Eide Bailly Accounting Leadership Program — Participant</span>
+                        <span>May 2025</span>
+                    </header>
+                    <p>• Selected for a competitive accounting leadership program; completed hands-on audit and client case simulations.</p>
+                    <p>• Offered a paid Summer 2027 Accounting Internship upon program completion.</p>
+                </div>
+
+                <div class="resume-item">
+                    <header>
+                        <span>CliftonLarsonAllen — Accounting Intern</span>
+                        <span>May 2024 – Jul 2024</span>
+                    </header>
+                    <p>• Selected as 1 of 6 interns from an applicant pool of 200+ candidates in Phoenix, AZ.</p>
+                    <p>• Executed internal documentation, financial analysis, and Excel-based work across tax, audit, compliance, and wealth advisory.</p>
+                </div>
+
+                <div class="resume-item">
+                    <header>
+                        <span>Black Rock Coffee Shop — Barista</span>
+                        <span>Apr 2024 – Present</span>
+                    </header>
+                    <p>• Manage high-volume order workflows while delivering accurate cash, credit, and register reconciliations.</p>
+                </div>
+            </div>
+
+            <div class="resume-section">
+                <h3>Technical Skills, Certifications & Interests</h3>
+                <p><strong>Technical Skills:</strong> Advanced Microsoft Excel, Financial Data Modeling, Tableau Visual Analytics, Google Suite, Adobe Premiere Pro, Adobe Photoshop.</p>
+                <p><strong>Certifications:</strong> Franke Honors Civic Leadership Certificate (In Progress), NRF Customer Service Certification, Food Handlers Permit.</p>
+                <p><strong>Interests:</strong> Guitar, Chess, Leadership Analytics, International Travel.</p>
+            </div>
+        </section>
+
+        <!-- PERSONA VIDEO SECTION -->
+        <section id="video">
+            <h2 class="section-title">Professional Persona Video</h2>
+            <p class="section-subtitle">"Stepping Out of the Cell" — Articulating my journey from technical precision to warm collaborative leadership.</p>
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/9QgogRoYe-4" title="Persona Video" allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- PROFESSIONAL EVOLUTION ANALYSIS (CER) -->
+        <section id="growth">
+            <h2 class="section-title">Professional Evolution Analysis</h2>
+            <p class="section-subtitle">Longitudinal analysis evaluating identity (self-perception) versus reputation (360 teammate feedback) through Claim-Evidence-Reasoning (CER) frameworks.</p>
+
+            <!-- CER 1 -->
+            <div class="cer-card">
+                <h3>Domain 1: Core Values — Structure and Standards Drive My Work</h3>
+                <div class="visual-container">
+                    <!-- Replace 1_core_values.png with your file -->
+                    <img src="1_core_values.png" alt="Core Values & Motivators Chart" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>[ Chart: 1_core_values.png — Stability (80) & Achievement (60) Motivators ]</p>'">
+                </div>
+                <div class="cer-grid">
+                    <div class="cer-block">
+                        <h4>The Claim</h4>
+                        <p>My professional identity is anchored in structural accuracy, high standards of achievement, and systematic execution—key pillars for audit and financial advisory.</p>
+                    </div>
+                    <div class="cer-block">
+                        <h4>The Evidence (Data)</h4>
+                        <p>SPI motivators show <strong>Stability at 80/100</strong> and <strong>Achievement at 60/100</strong>. Peer review (PRS) yielded a <strong>100% Johari match rate</strong> across all 7 self-selected descriptors (<em>Driven</em> at 75%, <em>Rule-Follower</em> & <em>Good with Numbers</em> at 50%). Round 2 360 quality scores reached <strong>95.8/100</strong> (+10.3% above team avg).</p>
+                    </div>
+                </div>
+                <div class="cer-block" style="margin-top: 1rem;">
+                    <h4>The Reasoning & Alignment Strategy</h4>
+                    <p>My self-perception and public reputation align seamlessly in technical execution. Public accounting demands strict regulatory compliance and rigorous standards. Demonstrating consistent output quality (95.8) verifies to recruiters that my personal commitment to precision directly converts into baseline team reliability.</p>
+                </div>
+            </div>
+
+            <!-- CER 2 -->
+            <div class="cer-card">
+                <h3>Domain 2: Communication Style — A Driver by Nature, Perceived as Analytical</h3>
+                <div class="visual-container">
+                    <!-- Replace 5_communication_style.png with your file -->
+                    <img src="5_communication_style.png" alt="Communication Style Proactivity Gap" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>[ Chart: 5_communication_style.png — Driver Self-Rating vs Analytical Peer Perception ]</p>'">
+                </div>
+                <div class="cer-grid">
+                    <div class="cer-block">
+                        <h4>The Claim</h4>
+                        <p>While my internal communication style is proactive and direct (Driver), my initial outward presentation is perceived by teammates as reserved and methodical (Analytical).</p>
+                    </div>
+                    <div class="cer-block">
+                        <h4>The Evidence (Data)</h4>
+                        <p>SPI self-assessment rates as a <strong>Driver (+1.0 Proactivity, -4.0 Reactivity)</strong>, whereas 3 of 4 peers evaluated my external behavior as <strong>Analytical (-4.0 Avg Proactivity)</strong>—representing a <strong>-5.0 point proactivity variance</strong>. Qualitative feedback highlighted a pattern of being "quiet initially, then highly engaged once integrated."</p>
+                    </div>
+                </div>
+                <div class="cer-block" style="margin-top: 1rem;">
+                    <h4>Reasoning & Brand Strategy (Intention vs. Impact)</h4>
+                    <p><strong>Intention vs. Impact Gap:</strong> My intention to maintain harmony led me to listen quietly, but the impact was that teammates missed out on timely, candid critique. To reconcile this, my <strong>"Warm & Specific" Brand Strategy</strong> implements three actionable habits: (1) Contribute 1 targeted recommendation in every meeting kickoff, (2) Frame execution gaps early with exact deadlines, and (3) Conduct follow-up check-ins to ensure constructive feedback landed effectively.</p>
+                </div>
+            </div>
+
+            <!-- CER 3 -->
+            <div class="cer-card">
+                <h3>Domain 3: Course Insight — Warmth & Competence Matrix Alignment</h3>
+                <div class="visual-container">
+                    <!-- Replace 6_charisma_profile.png with your file -->
+                    <img src="6_charisma_profile.png" alt="Charisma Matrix & Accountability Trend" onerror="this.style.display='none'; this.parentElement.innerHTML='<p>[ Chart: 6_charisma_profile.png — Warmth vs Confidence Matrix & Accountability Trajectory ]</p>'">
+                </div>
+                <div class="cer-grid">
+                    <div class="cer-block">
+                        <h4>The Claim</h4>
+                        <p>I project high warmth and technical competence, but unlocking full executive potential requires developing assertive, direct accountability.</p>
+                    </div>
+                    <div class="cer-block">
+                        <h4>The Evidence (Data)</h4>
+                        <p>Charisma Diagnostic places me in the <strong>Warmth-Dominant Zone (2.78x Warmth-to-Assertiveness Ratio)</strong>. Round 2 360 effort scores rose to <strong>99.6</strong> and positive team environment reached <strong>99.4</strong>. However, holding others accountable dropped from <strong>3.80 to 3.20</strong> (-15.8% delta).</p>
+                    </div>
+                </div>
+                <div class="cer-block" style="margin-top: 1rem;">
+                    <h4>Reasoning & Next Steps for Accounting Career</h4>
+                    <p>During Presentation 3, when remote travel constraints threatened team alignment, I maintained high availability and equalized effort virtually—proving reliability under pressure. However, in auditing, partners must balance rapport with firm accountability. Combining high warmth (99.4 environment rating) with direct accountability ensures I can address client discrepancies constructively without sacrificing team cohesion.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="work">
+            <h2 class="section-title">Verified Portfolio Samples</h2>
+            <p class="section-subtitle">Concrete work products demonstrating technical analytics, automation, and visual design skills.</p>
+
+            <div class="work-grid">
+                <!-- Sample 1 -->
+                <div class="work-card">
+                    <div>
+                        <span class="work-tag">Sole Author / Developer</span>
+                        <h3>UFC Predictive Analytics & Excel Engine</h3>
+                        <p><strong>Context:</strong> Created a multi-sheet analytical workbook to track, model, and predict outcome performance across 35+ professional fighting events.</p>
+                        <br>
+                        <p><strong>Action:</strong> Engineered automated data aggregation macros, weight-class breakdown tables, and performance algorithms.</p>
+                        <br>
+                        <p><strong>Result & Claims:</strong> Achieved a <strong>60.0% overall prediction accuracy</strong> (+10.0% over random baseline) and <strong>64.0% accuracy in men's weight divisions</strong>. Proves advanced Excel modeling, macro automation, and structured data handling.</p>
+                    </div>
+                </div>
+
+                <!-- Sample 2 -->
+                <div class="work-card">
+                    <div>
+                        <span class="work-tag">Tableau Analytics (Group)</span>
+                        <h3>U.S. University Graduation Rate Dashboard</h3>
+                        <p><strong>Context:</strong> Academic research project analyzing 6-year bachelor's degree completion factors across ~1,500 U.S. higher education institutions.</p>
+                        <br>
+                        <p><strong>Action:</strong> Designed Tableau visualization dashboards, calculated fields, and interactive geographic/demographic filter actions.</p>
+                        <br>
+                        <p><strong>Result & Claims:</strong> Identified a <strong>+13-14 percentage point graduation premium</strong> for private non-profit institutions and a <strong>15 percentage point gap</strong> between suburban and rural schools. Proves data visualization and executive presentation ability.</p>
+                    </div>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://public.tableau.com/views/USDEGraduaitonRateAnalysis/HomePage" target="_blank" class="btn btn-gold" style="width: 100%; text-align: center;">View Interactive Tableau Dashboard</a>
+                    </div>
+                </div>
+
+                <!-- Sample 3 -->
+                <div class="work-card">
+                    <div>
+                        <span class="work-tag">Financial Operations</span>
+                        <h3>Beta Theta Pi Chapter Billing Platform</h3>
+                        <p><strong>Context:</strong> Standardized fraternity dues billing and budgeting infrastructure for a newly established chapter.</p>
+                        <br>
+                        <p><strong>Action:</strong> Designed balanced operating budgets, pricing tiers, and automated reminder schedules.</p>
+                        <br>
+                        <p><strong>Result & Claims:</strong> Raised chapter dues collections to <strong>near-100% efficiency</strong> while establishing capital reserves. Proves financial management and organizational accountability.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONNECT SECTION -->
+        <section id="connect" style="text-align: center;">
+            <h2 class="section-title">Connect & Contact</h2>
+            <p class="section-subtitle">Actively seeking public accounting internship and full-time opportunities in the Southwest.</p>
+            <div style="margin-top: 2rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="mailto:Hubler.logan@gmail.com" class="btn btn-gold">Send Email Inquiry</a>
+                <a href="https://www.linkedin.com/in/logan-woodruff-hubler-73b9312a3/" target="_blank" class="btn">View LinkedIn Profile</a>
+            </div>
+        </section>
+
+    </div>
 
     <footer>
-        <p>© 2026 Logan Woodruff-Hubler | Built for BCOM 314</p>
+        <p>© 2026 Logan Woodruff-Hubler | Built for BCOM 314 Professional Persona Project</p>
     </footer>
 
 </body>
